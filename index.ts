@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+import methodOverride from "method-override";
 dotenv.config();
 
 import { connectDatabase } from "./config/database";
@@ -13,6 +14,9 @@ connectDatabase();
 
 const app: Express = express();
 const port: number | string = process.env.PORT || 3000;
+
+// method-override
+app.use(methodOverride('_method'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
