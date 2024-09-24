@@ -3,7 +3,7 @@ import multer from "multer";
 const router = express.Router();
 
 import * as controller from "../../controllers/admin/song.controller";
-import * as uploadCoud from "../../middlewares/admin/uploadCloud.middleware";
+import * as uploadCloud from "../../middlewares/admin/uploadCloud.middleware";
 
 const upload = multer();
 
@@ -23,7 +23,7 @@ router.post(
       maxCount: 1
     }
   ]),
-  uploadCoud.uploadFields,
+  uploadCloud.uploadFields,
   controller.createPost
 );
 
@@ -41,7 +41,7 @@ router.patch(
       maxCount: 1
     }
   ]),
-  uploadCoud.uploadFields,
+  uploadCloud.uploadFields,
   controller.editPatch
 );
 
